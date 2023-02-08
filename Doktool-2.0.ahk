@@ -34,6 +34,14 @@ Loop DofusProcesses.Length {
 ; Display the GUI
 MyGui.Show("AutoSize")
 
+; Click on same spot on each window
+ClickAllWindows(xpos, ypos, *) {
+  Loop Characters.Length {
+    ControlClick("x" xpos " y" ypos, Characters[A_Index])
+    Sleep(Random(150, 400))
+  }
+}
+
 ; Refresh the script
 Refresh(*)
 {
@@ -44,4 +52,11 @@ Refresh(*)
 ; Switch to window assigned to character
 SwitchCharacter(Character, *) {
   WinActivate Character
+}
+
+; Thumb mouse button 1 to click over all windows
+Xbutton1::
+{
+  MouseGetPos(&xpos, &ypos)
+  ClickAllWindows(xpos, ypos)
 }
