@@ -9,6 +9,17 @@ MyGui.OnEvent("Close", (*) => ExitApp())
 BtnRefresh := MyGui.Add("Button", , "Refresh")
 BtnRefresh.OnEvent("Click", Refresh)
 
+; Read a setting file to use constant variables in script
+settings := Map()
+Loop read, "resources/settings2.0.txt"
+{
+  Loop parse, A_LoopReadLine, A_Tab
+  {
+    str := StrSplit(A_LoopField, ":")
+    settings[str[1]] := str[2]
+  }
+}
+
 ; Get all Dofus windows
 DofusProcesses := WinGetList("Dofus", , ,)
 

@@ -1,0 +1,8 @@
+topMapX:
+topMapY:
+bottomMapX:
+bottomMapY:
+leftMapX:
+leftMapY:
+rightMapX:
+rightMapY:
