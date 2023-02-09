@@ -22,7 +22,7 @@ Loop read, "resources/settings2.0.txt"
 }
 
 ; Get all Dofus windows
-DofusProcesses := WinGetList("Dofus", , ,)
+DofusProcesses := WinGetList("ahk_exe i)dofus", , ,)
 
 ; Define a list of hotkeys to use ("Alt+A",...)
 Hotkeys := ["!a", "!z", "!e", "!r", "!q", "!s", "!d", "!f"]
@@ -32,8 +32,7 @@ Hotkeys := ["!a", "!z", "!e", "!r", "!q", "!s", "!d", "!f"]
 Characters := []
 Loop DofusProcesses.Length {
   ID := DofusProcesses[A_Index]
-  If ((RegExMatch(WinGetProcessName("ahk_id " ID), "i)dofus", &DofusProcess))
-    && ((RegExMatch(WinGetTitle("ahk_id " ID), "^[^\s]+", &CharacterName)))
+  If (((RegExMatch(WinGetTitle("ahk_id " ID), "^[^\s]+", &CharacterName)))
     && (CharacterName[] != "Dofus")) {
     Characters.Push(CharacterName[])
     MyGui.Add("Text", "section", CharacterName[])
