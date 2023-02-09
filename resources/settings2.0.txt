@@ -1,7 +1,11 @@
-illustrationStartTurnX1:
-illustrationStartTurnY1:
-illustrationStartTurnX2:
-illustrationStartTurnY2:
+buttonGiveUpX1:
+buttonGiveUpY1:
+buttonGiveUpX2:
+buttonGiveUpY2:
+illustrationStartTurnX1:20
+illustrationStartTurnY1:200
+illustrationStartTurnX2:280
+illustrationStartTurnY2:300
 topMapX:1224
 topMapY:8
 bottomMapX:1364

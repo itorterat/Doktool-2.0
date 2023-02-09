@@ -49,7 +49,7 @@ MyGui.Show("AutoSize")
 Loop {
   if WinActive("ahk_exe i)dofus") {
     Suspend False  ; Enable hotkeys only if a dofus window is active  ; Enable hotkeys only if a dofus window is active
-    FightSwitchCharacter
+    FightMode
   }
   else {
     Suspend True
@@ -64,6 +64,26 @@ ClickAllWindows(xpos, ypos, *) {
   }
 }
 
+; Check if current window is in fight to enable FightSwitchCharacter
+; (To avoid looking for the character who has to play all the time, if there is no fight)
+FightMode(*) {
+  try {
+    If ImageSearch(&FoundX, &FoundY,
+      settings["buttonGiveUpX1"], settings["buttonGiveUpY1"],
+      settings["buttonGiveUpX2"], settings["buttonGiveUpY2"],
+      "*30 resources\GiveUp.png")
+    {
+      FightSwitchCharacter
+    }
+  }
+  catch {
+    MsgBox "GiveUp: wrong or missing image."
+    ExitApp
+  }
+  Sleep(250)
+}
+
+; Loop through characters to auto switch to character window which must play
 FightSwitchCharacter(*) {
   Loop Characters.Length {
     try {
