@@ -134,3 +134,8 @@ Left:: {
 Right:: {
   ClickAllWindows(settings["rightMapX"], settings["rightMapY"])
 }
+
+; F2 to click on notification (join party, fight, ...)
+F2:: {
+  ClickAllWindows(settings["notifX"], settings["notifY"])
+}
