@@ -1,4 +1,5 @@
 #SingleInstance Force
+SetTitleMatchMode "RegEx"
 
 ; Create the GUI
 MyGui := Gui()
@@ -37,13 +38,23 @@ Loop DofusProcesses.Length {
     Characters.Push(CharacterName[])
     MyGui.Add("Text", "section", CharacterName[])
     MyGui.Add("Hotkey", "+disabled", Hotkeys[1])
-    Hotkey(Hotkeys[1], SwitchCharacter.Bind(CharacterName[]), "s")
+    Hotkey(Hotkeys[1], SwitchCharacter.Bind(CharacterName[]), "s")  ; "s" to always enable hotkey
     Hotkeys.RemoveAt(1)
   }
 }
 
 ; Display the GUI
 MyGui.Show("AutoSize")
+
+; Infinite loop to run script and functions indefinitely
+Loop {
+  if WinActive("ahk_exe i)dofus") {
+    Suspend False  ; Enable hotkeys only if a dofus window is active
+  }
+  else {
+    Suspend True
+  }
+}
 
 ; Click on same spot on each window
 ClickAllWindows(xpos, ypos, *) {
