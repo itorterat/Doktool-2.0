@@ -12,10 +12,8 @@ BtnRefresh.OnEvent("Click", Refresh)
 
 ; Read a setting file to use constant variables in script
 settings := Map()
-Loop read, "resources/settings2.0.txt"
-{
-  Loop parse, A_LoopReadLine, A_Tab
-  {
+Loop read, "resources/settings2.0.txt" {
+  Loop parse, A_LoopReadLine, A_Tab {
     str := StrSplit(A_LoopField, ":")
     settings[str[1]] := str[2]
   }
@@ -71,8 +69,7 @@ FightMode(*) {
     If ImageSearch(&FoundX, &FoundY,
       settings["buttonGiveUpX1"], settings["buttonGiveUpY1"],
       settings["buttonGiveUpX2"], settings["buttonGiveUpY2"],
-      "*30 resources\GiveUp.png")
-    {
+      "*30 resources\GiveUp.png") {
       FightSwitchCharacter
     }
   }
@@ -90,8 +87,7 @@ FightSwitchCharacter(*) {
       If ImageSearch(&FoundX, &FoundY,
         settings["illustrationStartTurnX1"], settings["illustrationStartTurnY1"],
         settings["illustrationStartTurnX2"], settings["illustrationStartTurnY2"],
-        "*30 resources\characters\" . Characters[A_Index] . ".png")
-      {
+        "*30 resources\characters\" . Characters[A_Index] . ".png") {
         SwitchCharacter(Characters[A_Index])
       }
     }
@@ -103,8 +99,7 @@ FightSwitchCharacter(*) {
 }
 
 ; Refresh the script
-Refresh(*)
-{
+Refresh(*) {
   Run(A_ScriptFullPath)
   ExitApp
 }
@@ -115,8 +110,7 @@ SwitchCharacter(Character, *) {
 }
 
 ; Thumb mouse button 1 to click over all windows
-Xbutton1::
-{
+Xbutton1:: {
   MouseGetPos(&xpos, &ypos)
   ClickAllWindows(xpos, ypos)
 }
