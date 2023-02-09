@@ -1,7 +1,7 @@
-buttonGiveUpX1:
-buttonGiveUpY1:
-buttonGiveUpX2:
-buttonGiveUpY2:
+buttonGiveUpX1:1930
+buttonGiveUpY1:1330
+buttonGiveUpX2:1980
+buttonGiveUpY2:1380
 illustrationStartTurnX1:20
 illustrationStartTurnY1:200
 illustrationStartTurnX2:280
