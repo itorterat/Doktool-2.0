@@ -6,8 +6,8 @@ illustrationStartTurnX1:20
 illustrationStartTurnY1:200
 illustrationStartTurnX2:280
 illustrationStartTurnY2:300
-notifX:
-notifY:
+notifX:375
+notifY:275
 topMapX:1224
 topMapY:8
 bottomMapX:1364
