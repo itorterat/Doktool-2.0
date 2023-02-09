@@ -1,8 +1,8 @@
-topMapX:
-topMapY:
-bottomMapX:
-bottomMapY:
-leftMapX:
-leftMapY:
-rightMapX:
-rightMapY:
+topMapX:1224
+topMapY:8
+bottomMapX:1364
+bottomMapY:1226
+leftMapX:443
+leftMapY:650
+rightMapX:2117
+rightMapY:617

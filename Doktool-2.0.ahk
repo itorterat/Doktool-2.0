@@ -71,3 +71,23 @@ Xbutton1::
   MouseGetPos(&xpos, &ypos)
   ClickAllWindows(xpos, ypos)
 }
+
+; Up arrow to click on topMap(x,y)
+Up:: {
+  ClickAllWindows(settings["topMapX"], settings["topMapY"])
+}
+
+; Down arrow to click on bottomMap(x,y)
+Down:: {
+  ClickAllWindows(settings["bottomMapX"], settings["bottomMapY"])
+}
+
+; Left arrow to click on leftMap(x,y)
+Left:: {
+  ClickAllWindows(settings["leftMapX"], settings["leftMapY"])
+}
+
+; Right arrow to click on rightMap(x,y)
+Right:: {
+  ClickAllWindows(settings["rightMapX"], settings["rightMapY"])
+}
