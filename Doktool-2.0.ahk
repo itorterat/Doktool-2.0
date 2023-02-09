@@ -48,7 +48,8 @@ MyGui.Show("AutoSize")
 ; Infinite loop to run script and functions indefinitely
 Loop {
   if WinActive("ahk_exe i)dofus") {
-    Suspend False  ; Enable hotkeys only if a dofus window is active
+    Suspend False  ; Enable hotkeys only if a dofus window is active  ; Enable hotkeys only if a dofus window is active
+    FightSwitchCharacter
   }
   else {
     Suspend True
@@ -60,6 +61,24 @@ ClickAllWindows(xpos, ypos, *) {
   Loop Characters.Length {
     ControlClick("x" xpos " y" ypos, Characters[A_Index])
     Sleep(Random(150, 400))
+  }
+}
+
+FightSwitchCharacter(*) {
+  Loop Characters.Length {
+    try {
+      If ImageSearch(&FoundX, &FoundY,
+        settings["illustrationStartTurnX1"], settings["illustrationStartTurnY1"],
+        settings["illustrationStartTurnX2"], settings["illustrationStartTurnY2"],
+        "*30 resources\characters\" . Characters[A_Index] . ".png")
+      {
+        SwitchCharacter(Characters[A_Index])
+      }
+    }
+    catch {
+      MsgBox Characters[A_Index] . ": wrong or missing image."
+      ExitApp
+    }
   }
 }
 

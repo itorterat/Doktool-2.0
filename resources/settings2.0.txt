@@ -1,3 +1,7 @@
+illustrationStartTurnX1:
+illustrationStartTurnY1:
+illustrationStartTurnX2:
+illustrationStartTurnY2:
 topMapX:1224
 topMapY:8
 bottomMapX:1364
